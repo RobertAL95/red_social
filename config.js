@@ -4,6 +4,9 @@ const config = {
   api: {
     port: parseInt(process.env.API_PORT) || 3000
   },
+  post: {
+    port: process.env.POST_PORT || 3002
+  },
   jwt: {
     secret: process.env.JWT_SECRET || 'notaSecret'
   },
@@ -17,10 +20,6 @@ const config = {
     host: process.env.MYSQL_SRV_HOST || 'localhost',
     port: process.env.MYSQL_SRV_PORT || 3001,
   },
-  postService: {
-    host: process.env.POST_SRV_HOTS || 'localhost',
-    port: process.env.POST_SRV_PORT || 3002
-  }
 };
 
 module.exports = config;

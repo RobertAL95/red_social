@@ -1,16 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-const config = require('../config');
-const router = require('./network')
+const config = require('../config.js');
+const post = require('./components/post/network');
+const errors = require('../network/errors');
+
 const app = express();
 
 app.use(bodyParser.json());
 
-//Rutas
+// ROUTER
+app.use('/api/post', post);
 
-app.use('/', router)
+app.use(errors);
 
-app.listen(config.postService.port, () => {
-    console.log('Servicio de post escuchando en el puerto', config.mysqlService.port);
+app.listen(config.post.port, () => {
+    console.log('Servicio posts escuchando en el puerto ', config.post.port);
 });
